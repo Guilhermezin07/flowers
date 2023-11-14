@@ -4,21 +4,29 @@ document.addEventListener("DOMContentLoaded", function () {
     function createFlower() {
         const flower = document.createElement("div");
         flower.classList.add("flower");
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-        flower.style.left = `${x}px`;
-        flower.style.top = `${y}px`;
 
+        const stem = document.createElement("div");
+        stem.classList.add("stem");
+
+        flower.appendChild(stem);
         container.appendChild(flower);
 
-        flower.addEventListener("animationend", () => {
-            container.removeChild(flower);
-        });
+        const petals = [];
+        for (let i = 0; i < 12; i++) {
+            const petal = document.createElement("div");
+            petal.classList.add("petal");
+            petal.style.transform = `rotate(${i * 30}deg) translate(0, -40px) rotate(0deg)`;
+            petals.push(petal);
+            flower.appendChild(petal);
+        }
 
         setTimeout(() => {
-            flower.style.animation = "bloom 3s forwards";
+            flower.style.display = "block";
+            petals.forEach(petal => {
+                petal.style.animation = "bloom 3s forwards";
+            });
         }, 100);
     }
 
-    setInterval(createFlower, 500); // Cria uma flor a cada 0,5 segundos
+    setInterval(createFlower, 5000); // Cria uma flor a cada 5 segundos
 });
