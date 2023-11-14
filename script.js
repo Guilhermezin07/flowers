@@ -5,16 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const flower = document.createElement("div");
         flower.classList.add("flower");
 
-        const stem = document.createElement("div");
-        stem.classList.add("stem");
-
-        const center = document.createElement("div");
-        center.classList.add("flower-center");
-
-        flower.appendChild(stem);
-        flower.appendChild(center);
-        container.appendChild(flower);
-
         const petals = [];
         for (let i = 0; i < 8; i++) {
             const angle = (i * 45) * (Math.PI / 180);
@@ -25,13 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
             petal.style.left = `${petalX + 50}%`;
             petal.style.top = `${petalY + 50}%`;
             petals.push(petal);
-            center.appendChild(petal);
+            flower.appendChild(petal);
         }
 
         const x = Math.random() * window.innerWidth;
         const y = Math.random() * window.innerHeight;
         flower.style.left = `${x}px`;
         flower.style.top = `${y}px`;
+
+        container.appendChild(flower);
 
         setTimeout(() => {
             flower.style.display = "block";
