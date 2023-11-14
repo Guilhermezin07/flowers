@@ -12,6 +12,7 @@ body, html {
 .flower {
     position: absolute;
     display: none;
+    animation: blink 1s infinite alternate; /* Adicione esta linha para fazer as flores piscarem */
 }
 
 .petal {
@@ -20,7 +21,8 @@ body, html {
     background-color: white;
     position: absolute;
     border-radius: 50%;
-    animation: blink 1s infinite alternate; /* Animação de piscar */
+    /* animation: blink 1s infinite alternate; Remova esta linha */
+    opacity: 0; /* Comece com a opacidade a 0 para iniciar a animação */
 }
 
 .stem {
