@@ -5,21 +5,23 @@ body, html {
 }
 
 .flower {
-    width: 50px;
-    height: 50px;
-    background-color: #ff69b4; /* Cor da flor, você pode ajustar */
-    border-radius: 50%;
     position: absolute;
+    display: none;
 }
 
-@keyframes bloom {
-    0% {
-        transform: scale(0);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
+.petal {
+    width: 20px;
+    height: 40px;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    transform-origin: bottom center;
+    animation: bloom 3s forwards;
+}
+
+.stem {
+    width: 4px;
+    height: 80px;
+    background-color: green;
+    position: absolute;
 }
