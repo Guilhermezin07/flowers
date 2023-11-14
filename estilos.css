@@ -5,49 +5,61 @@ body, html {
     background-color: black; /* Fundo preto */
 }
 
-.flower-container {
+.container {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .flower {
-    position: absolute;
-    display: none;
-    animation: blink 1s infinite alternate; /* Adicione esta linha para fazer as flores piscarem */
-}
-
-.petal {
-    width: 10px;
-    height: 20px;
-    background-color: white;
-    position: absolute;
+    width: 0;
+    height: 0;
     border-radius: 50%;
-    /* animation: blink 1s infinite alternate; Remova esta linha */
-    opacity: 0; /* Comece com a opacidade a 0 para iniciar a animação */
-}
-
-.stem {
-    width: 2px;
-    height: 40px;
-    background-color: green;
     position: absolute;
-}
-
-.flower-center {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: yellow;
-    position: absolute;
+    bottom: 0;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    background-color: transparent;
+    border: 10px solid transparent;
+    animation: grow 3s ease forwards, colorize 3s ease forwards;
 }
 
-@keyframes blink {
-    from {
-        opacity: 1;
+@keyframes grow {
+    0% {
+        width: 0;
+        height: 0;
+        border-width: 10px;
     }
-    to {
-        opacity: 0.5;
+    100% {
+        width: 200px;
+        height: 200px;
+        border-width: 0;
+    }
+}
+
+@keyframes colorize {
+    0% {
+        background-color: transparent;
+    }
+    100% {
+        background-color: yellow; /* Cor da flor */
+    }
+}
+
+.parabens {
+    color: white;
+    font-size: 30px;
+    opacity: 0;
+    animation: showText 4s linear forwards;
+}
+
+@keyframes showText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
