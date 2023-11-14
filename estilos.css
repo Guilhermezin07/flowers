@@ -2,7 +2,11 @@ body, html {
     height: 100%;
     margin: 0;
     overflow: hidden;
-    background-color: black; /* Adicionando fundo preto */
+    background-color: black; /* Fundo preto */
+}
+
+.flower-container {
+    position: relative;
 }
 
 .flower {
@@ -11,18 +15,37 @@ body, html {
 }
 
 .petal {
-    width: 20px;
-    height: 40px;
+    width: 10px;
+    height: 20px;
     background-color: white;
     position: absolute;
     border-radius: 50%;
-    transform-origin: bottom center;
-    animation: bloom 3s forwards;
+    animation: blink 1s infinite alternate; /* Animação de piscar */
 }
 
 .stem {
-    width: 4px;
-    height: 80px;
+    width: 2px;
+    height: 40px;
     background-color: green;
     position: absolute;
+}
+
+.flower-center {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: yellow;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+    }
 }
